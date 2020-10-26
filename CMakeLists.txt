@@ -13,20 +13,15 @@ set(TRT_SDK_ROOT "" CACHE PATH "NVIDIA TensorRT SDK root path")
 set(OPENCV_ROOT "" CACHE PATH "OpenCV SDK root path")
 
 # Settings for ROS
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  sensor_msgs
-  cv_bridge
-)
-
-catkin_package()
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 include_directories(
   include
-  ${catkin_INCLUDE_DIRS}
 )
 
-find_package(CUDA 10.0 EXACT REQUIRED cudart cublas curand)
+find_package(CUDA 10.2 EXACT REQUIRED cudart cublas curand)
 list(APPEND GPU_ARCHS 30 35 37 50 52 60 61 70 75)
 
 
@@ -66,8 +61,8 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/lib ${PROJECT_BINARY_DIR}/lib)
 include_directories(${CUDA_INCLUDE_DIRS} ${TRT_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}/lib)
 link_directories(${CUDA_TOOLKIT_ROOT_DIR}/lib64)
 
-add_executable(trt_yolo_ros_node src/trt_yolo_ros_node.cpp src/trt_yolo_ros.cpp)
-target_link_libraries(trt_yolo_ros_node yolo-lib ${catkin_LIBRARIES})
+#add_executable(trt_yolo_ros_node src/trt_yolo_ros_node.cpp src/trt_yolo_ros.cpp)
+#target_link_libraries(trt_yolo_ros_node yolo-lib ${catkin_LIBRARIES})
 
 #Install app
-install(TARGETS trt_yolo_ros_node RUNTIME DESTINATION bin CONFIGURATIONS Release Debug)
+#install(TARGETS trt_yolo_ros_node RUNTIME DESTINATION bin CONFIGURATIONS Release Debug)
