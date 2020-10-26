@@ -28,7 +28,7 @@ SOFTWARE.
 #define __TRT_UTILS_H__
 
 /* OpenCV headers */
-#include <opencv/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/dnn/dnn.hpp>
 #include <opencv2/highgui/highgui.hpp>
