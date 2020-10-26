@@ -16,9 +16,11 @@ set(OPENCV_ROOT "" CACHE PATH "OpenCV SDK root path")
 #find_package(ament_cmake REQUIRED)
 #find_package(rclcpp REQUIRED)
 #find_package(sensor_msgs REQUIRED)
+find_package(OpenCV REQUIRED)
 
 include_directories(
   include
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 find_package(CUDA 10.2 EXACT REQUIRED cudart cublas curand)
