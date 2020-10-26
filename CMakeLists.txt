@@ -13,9 +13,9 @@ set(TRT_SDK_ROOT "" CACHE PATH "NVIDIA TensorRT SDK root path")
 set(OPENCV_ROOT "" CACHE PATH "OpenCV SDK root path")
 
 # Settings for ROS
-find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(sensor_msgs REQUIRED)
+#find_package(ament_cmake REQUIRED)
+#find_package(rclcpp REQUIRED)
+#find_package(sensor_msgs REQUIRED)
 
 include_directories(
   include
